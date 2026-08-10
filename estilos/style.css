@@ -24,44 +24,67 @@
     --font-text:'Badaboom BB' sans-serif;
     
 }
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;                 
+/* ==============================
+   RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-   background-color: var(--creme);  
-   margin: 0 auto; 
-                 
+
+
+/* ==============================
+   BODY
+================================= */
+
+body {
+    margin: 0;
+    background-color: var(--creme);
+    color: var(--texto);
 }
+
+
+/* ==============================
+   CABEÇALHO
+================================= */
+
 header {
     position: relative;
     width: 100%;
+    min-height: 120px;
     background-color: var(--creme-rose);
-    
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 /* Logo central */
+
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .header img {
+    width: 100%;
     max-width: 300px;
     height: auto;
 }
 
+
 /* Logo da direita */
+
 .right {
     position: absolute;
+    top: 50%;
     right: 30px;
-    top: 70px;
+
     transform: translateY(-50%);
 
     display: flex;
@@ -69,128 +92,332 @@ header {
 }
 
 .right img {
-    max-width: 100px;
+    width: 100px;
     height: auto;
 }
-/* container*/
 
-.container{
-   margin: 20px auto;
-   max-width: 900px;
-   width: 90vw;
-   background-color: white;
-   border:1px solid var(--borda);
-   border-radius: 8px;
-   padding: 20px 30px;
-   box-shadow: 0px 0px 4px var(--marrom-profundo);                 
+
+/* ==============================
+   CONTAINER PRINCIPAL
+================================= */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 20px auto;
+    padding: 20px;
+
+    background-color: white;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+
+    box-shadow: 0 0 4px var(--marrom-profundo);
 }
- /*navegação*/
 
- .nav-main ul{
+
+/* ==============================
+   NAVEGAÇÃO
+================================= */
+
+.nav-main ul {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 10px;
+    gap: 8px;
+
+    margin: 10px 0;
+
     list-style: none;
 }
-.nav-main ul li a{
-    text-decoration: none;
-    font-size: 14px;
+
+.nav-main ul li a {
+    display: block;
+
+    padding: 8px 12px;
+
+    color: var(--marrom-profundo);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--marrom-profundo);   
-    padding: 10px 20px ; 
-    transition: all 0.3s;          
+    font-size: 14px;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition: all 0.3s ease;
 }
-.nav-main ul li a:hover{
-    background-color: var(--texto); 
-    color: white; 
-    border-radius: 8px;              
+
+.nav-main ul li a:hover {
+    background-color: var(--texto);
+    color: white;
 }
-/*conteúdo*/
-.container h1{
+
+
+/* ==============================
+   TÍTULO PRINCIPAL
+================================= */
+
+.container h1 {
+    padding: 15px 0 25px;
+
+    color: var(--marrom-profundo);
+
     text-align: center;
-    padding: 20px 0 30px; 
-    color:var(--marrom-profundo);
-    font-size: 2em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+}
+
+
+/* ==============================
+   GRID PRINCIPAL
+================================= */
+
+.grid-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+/* ==============================
+   TEXTOS
+================================= */
+
+.text p {
+    margin: 15px 0;
+
+    color: var(--texto);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.05rem;
+
+    line-height: 1.6;
+
+    text-align: justify;
+    text-indent: 30px;
+}
+
+
+/* ==============================
+   IMAGENS
+================================= */
+
+section figure {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 20px auto;
+}
+
+section figure img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 5px;
+}
+
+section > figure > figcaption {
+    margin-top: 5px;
+
+    color: var(--dourado);
+
+    font-style: italic;
+    text-align: center;
+}
+
+
+/* ==============================
+   ARTIGOS
+================================= */
+
+section article {
+    padding: 10px;
+
+    background-color: var(--creme);
+
+    border: 1px solid var(--creme-rose);
+    border-radius: 5px;
+
+    box-shadow: 0 0 4px var(--dourado);
+
+    color: var(--marrom-profundo);
+
+    font-size: 14px;
+    text-align: center;
+}
+
+section article p a {
+    color: #3E281C;
+    text-decoration: none;
+}
+
+section article p a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   HISTÓRIAS
+================================= */
+
+.historias {
+    width: 100%;
+    max-width: 300px;
+
+    border: 1px solid var(--dourado-claro);
+    border-radius: 5px;
+
+    box-shadow: 0 0 4px var(--dourado);
+
+    transition: all 0.3s ease;
+}
+
+.historias:hover {
+    transform: translateY(-6px);
+
+    border: 2px solid var(--dourado-claro);
+
+    box-shadow: 0 0 7px var(--dourado);
+}
+
+.historias a {
+    display: block;
+
+    padding: 5px;
+
+    color: var(--dourado-claro);
+
+    font-weight: bold;
+    text-align: center;
+
+    text-decoration: none;
 
 }
-.grid-main{
-    display: grid;
-    grid-template-columns: (1, 1fr);
-    justify-content: center;
+.historias a figure figcaption{
+    margin-top: 20px;
+    
+}
 
+
+/* ==============================
+   RODAPÉ
+================================= */
+
+footer {
+    padding: 15px;
+
+    background-color: var(--creme-rose);
+
+    border-top: 1px solid var(--borda);
+
+    box-shadow: 0 0 4px var(--dourado);
+
+    color: var(--marrom-profundo);
+
+    text-align: center;
+}
+
+footer > figure {
+    margin: 0;
+}
+
+footer > figure > img {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ==============================
+   TELAS PEQUENAS
+================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 100px;
     }
 
-.text p{
-   text-align: justify; 
-   line-height: 1.6em; 
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-   color: var(--texto);
-   font-size: 1.3em;   
-   text-indent: 40px;  
-   margin: 20px 0;         
-}
-/*imagem*/
-section figure{
-    width: 90%; 
-    margin: 20px auto;               
-}
-section figure img{
-    width:100% ; 
-    height: auto;               
-}
-section > figure > figcaption{
-     color: var(--dourado);
-     font-style: italic;               
-}
-/*Article*/
-section article{
-   background-color: var(--creme);
-   border: 1px solid var(--creme-rose);
-   box-shadow: 0px 0px 4px var(--dourado);
-   padding: 5px ; 
-   border-radius: 5px; 
-   text-align: center;
-   font-size:14px;
-   color: var(--marrom-profundo);
-            
-}
-section article p a {
-      color: #3E281C;  
-      text-decoration: none; 
+    .header img {
+        max-width: 200px;
+    }
 
+    .right {
+        right: 10px;
+    }
+
+    .right img {
+        width: 65px;
+    }
+
+    .container {
+        width: 94%;
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .container h1 {
+        font-size: 1.5rem;
+        padding: 10px 0 20px;
+    }
+
+    .nav-main ul {
+        gap: 4px;
+    }
+
+    .nav-main ul li a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .text p {
+        font-size: 1rem;
+        line-height: 1.5;
+        text-indent: 20px;
+    }
+
+    section figure {
+        width: 100%;
+    }
+
+    .historias {
+        max-width: 100%;
+    }
 }
-section article p a:hover{
-       text-decoration: underline;             
-}
-/*icones para as histórias*/
-.historias{
-      width: 300px; 
-      border: 1px solid var(--dourado-claro);
-      border-radius: 5px;
-      box-shadow: 0px 0px 4px var(--dourado);
-      transition: all 0.3s;             
-}
-.historias:hover{
-     transform: translateY(-6px); 
-     border: 3px solid var(--dourado-claro);
-      box-shadow: 0px 0px 7px var(--dourado);              
-}
-.historias a{
-     text-decoration: none;
-     text-align: center;
-     color: var(--dourado-claro);
-     font-weight: bold;               
-}
-/*rodapé*/
-footer{
-    text-align: center;
-    color: var(--marrom-profundo);
-    background-color: var(--creme-rose);
-    border-top: 1px solid var(--borda);
-    box-shadow: 0px 0px 4px var(--dourado);
-}
-footer > figure > img{
-    width: 100px;
+
+
+/* ==============================
+   TELAS MUITO PEQUENAS
+================================= */
+
+@media (max-width: 400px) {
+
+    .header img {
+        max-width: 170px;
+    }
+
+    .right img {
+        width: 50px;
+    }
+
+    .container {
+        width: 96%;
+        padding: 12px;
+    }
+
+    .container h1 {
+        font-size: 1.35rem;
+    }
+
+    .nav-main ul li a {
+        font-size: 12px;
+        padding: 6px 7px;
+    }
 }
