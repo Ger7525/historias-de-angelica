@@ -53,7 +53,7 @@ header {
 }
 
 .header img {
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
 }
 
@@ -85,19 +85,17 @@ header {
    box-shadow: 0px 0px 4px var(--marrom-profundo);                 
 }
  /*navegação*/
-.nav-main{
-                    
-}
+
  .nav-main ul{
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     margin: 10px;
     list-style: none;
 }
 .nav-main ul li a{
     text-decoration: none;
-    font-size: 24px;
+    font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--marrom-profundo);   
     padding: 10px 20px ; 
@@ -114,8 +112,15 @@ header {
     padding: 20px 0 30px; 
     color:var(--marrom-profundo);
     font-size: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 
 }
+.grid-main{
+    display: grid;
+    grid-template-columns: (1, 1fr);
+    justify-content: center;
+
+    }
 
 .text p{
    text-align: justify; 
@@ -177,4 +182,15 @@ section article p a:hover{
      text-align: center;
      color: var(--dourado-claro);
      font-weight: bold;               
+}
+/*rodapé*/
+footer{
+    text-align: center;
+    color: var(--marrom-profundo);
+    background-color: var(--creme-rose);
+    border-top: 1px solid var(--borda);
+    box-shadow: 0px 0px 4px var(--dourado);
+}
+footer > figure > img{
+    width: 100px;
 }
