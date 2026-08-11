@@ -270,6 +270,7 @@ section article p a:hover {
 .historias {
     width: 100%;
     max-width: 300px;
+    height: auto;
 
     border: 1px solid var(--dourado-claro);
     border-radius: 5px;
@@ -401,6 +402,13 @@ footer > figure > img {
     section figure {
         width: 100%;
     }
+    .grid-main {
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap: 20px;
+
+    width: 100%;
+}
 
     .historias {
         max-width: 100%;
