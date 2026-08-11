@@ -304,7 +304,22 @@ section article p a:hover {
     margin-top: 20px;
     
 }
+/* ============================
+    FALA
+ ============================
+*/
 
+span.fala {
+  font-family: 'Georgia', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--marrom-medio);
+  
+  /* Destaque visual */
+  padding-left: 1rem;
+  margin: 0.8rem 0;
+  line-height: 1.6;
+}
 
 /* ==============================
    RODAPÉ
