@@ -24,16 +24,11 @@
     --font-text:'Badaboom BB' sans-serif;
     
 }
-/* ==============================
-   RESET
-================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 /* ==============================
    BODY
@@ -44,7 +39,6 @@ body {
     background-color: var(--creme);
     color: var(--texto);
 }
-
 
 /* ==============================
    CABEÇALHO
@@ -61,9 +55,6 @@ header {
     justify-content: center;
 }
 
-
-/* Logo central */
-
 .header {
     display: flex;
     justify-content: center;
@@ -77,14 +68,10 @@ header {
     height: auto;
 }
 
-
-/* Logo da direita */
-
 .right {
     position: absolute;
     top: 50%;
     right: 30px;
-
     transform: translateY(-50%);
 
     display: flex;
@@ -96,14 +83,13 @@ header {
     height: auto;
 }
 
-
 /* ==============================
    CONTAINER PRINCIPAL
 ================================= */
 
 .container {
     width: 90%;
-    max-width: 900px;
+    max-width: 1200px; /* Aumentado de 900px para caber 4 colunas confortavelmente */
 
     margin: 20px auto;
     padding: 20px;
@@ -114,6 +100,18 @@ header {
     border-radius: 8px;
 
     box-shadow: 0 0 4px var(--marrom-profundo);
+}
+#obs{
+    margin-bottom: 20px;
+    background-color: white;
+}
+#obs p{
+    font-size: 13px;
+    color:black;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-indent: none;
 }
 
 
@@ -154,7 +152,6 @@ header {
     color: white;
 }
 
-
 /* ==============================
    TÍTULO PRINCIPAL
 ================================= */
@@ -170,19 +167,18 @@ header {
     font-size: 2rem;
 }
 
-
 /* ==============================
-   GRID PRINCIPAL
+   GRID PRINCIPAL (MOBILE-FIRST)
 ================================= */
 
+/* Padrão para Telas Menores / Mobile: 1 Box centralizado */
 .grid-main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
-
+    justify-items: center; 
     width: 100%;
 }
-
 
 /* ==============================
    TEXTOS
@@ -201,7 +197,6 @@ header {
     text-align: justify;
     text-indent: 30px;
 }
-
 
 /* ==============================
    IMAGENS
@@ -232,7 +227,6 @@ section > figure > figcaption {
     text-align: center;
 }
 
-
 /* ==============================
    ARTIGOS
 ================================= */
@@ -261,7 +255,6 @@ section article p a {
 section article p a:hover {
     text-decoration: underline;
 }
-
 
 /* ==============================
    HISTÓRIAS
@@ -299,27 +292,26 @@ section article p a:hover {
     text-align: center;
 
     text-decoration: none;
+}
 
-}
-.historias a figure figcaption{
+.historias a figure figcaption {
     margin-top: 20px;
-    
 }
+
 /* ============================
-    FALA
- ============================
-*/
+   FALA
+=============================== */
 
 span.fala {
-  font-family: 'Georgia', serif;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--marrom-medio);
-  
-  /* Destaque visual */
-  padding-left: 1rem;
-  margin: 0.8rem 0;
-  line-height: 1.6;
+    display: block;
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--marrom-medio);
+
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+    line-height: 1.6;
 }
 
 /* ==============================
@@ -350,97 +342,27 @@ footer > figure > img {
     height: auto;
 }
 
-
 /* ==============================
-   TELAS PEQUENAS
+   BREAKPOINTS RESPONSIVOS (GRID)
 ================================= */
 
-@media (max-width: 600px) {
-
-    header {
-        min-height: 100px;
-    }
-
-    .header img {
-        max-width: 200px;
-    }
-
-    .right {
-        right: 10px;
-    }
-
-    .right img {
-        width: 65px;
-    }
-
-    .container {
-        width: 94%;
-        padding: 15px;
-        margin: 15px auto;
-    }
-
-    .container h1 {
-        font-size: 1.5rem;
-        padding: 10px 0 20px;
-    }
-
-    .nav-main ul {
-        gap: 4px;
-    }
-
-    .nav-main ul li a {
-        padding: 7px 9px;
-        font-size: 13px;
-    }
-
-    .text p {
-        font-size: 1rem;
-        line-height: 1.5;
-        text-indent: 20px;
-    }
-
-    section figure {
-        width: 100%;
-    }
+/* 1. Tablets (ex: 600px em diante): 2 Boxes */
+@media screen and (min-width: 600px) {
     .grid-main {
-    display: grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap: 20px;
-
-    width: 100%;
-}
-
-    .historias {
-        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
-/* ==============================
-   TELAS MUITO PEQUENAS
-================================= */
-
-@media (max-width: 400px) {
-
-    .header img {
-        max-width: 170px;
+/* 2. Desktop (ex: 900px em diante): 3 Boxes */
+@media screen and (min-width: 900px) {
+    .grid-main {
+        grid-template-columns: repeat(3, 1fr);
     }
+}
 
-    .right img {
-        width: 50px;
-    }
-
-    .container {
-        width: 96%;
-        padding: 12px;
-    }
-
-    .container h1 {
-        font-size: 1.35rem;
-    }
-
-    .nav-main ul li a {
-        font-size: 12px;
-        padding: 6px 7px;
+/* 3. Telas Grandes (ex: 1200px em diante): 4 Boxes */
+@media screen and (min-width: 1200px) {
+    .grid-main {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
