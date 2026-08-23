@@ -5,7 +5,7 @@
   src: url('../fontes/BADABB__.TTF') format('truetype');
 }
 
-:root{ 
+:root { 
     --marrom-profundo: #5A3218;
     --marrom-medio: #7A4A28;
 
@@ -21,9 +21,9 @@
     --branco: #FFFFFF;
     --texto: #3E281C;
     --borda: rgba(201, 149, 61, 0.35);
-    --font-text:'Badaboom BB' sans-serif;
-    
+    --font-text: 'Badaboom BB', sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -38,6 +38,7 @@ body {
     margin: 0;
     background-color: var(--creme);
     color: var(--texto);
+    overflow-x: hidden;
 }
 
 /* ==============================
@@ -89,8 +90,7 @@ header {
 
 .container {
     width: 90%;
-    max-width: 1200px; /* Aumentado de 900px para caber 4 colunas confortavelmente */
-
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
 
@@ -101,19 +101,19 @@ header {
 
     box-shadow: 0 0 4px var(--marrom-profundo);
 }
-#obs{
+
+#obs {
     margin-bottom: 20px;
     background-color: white;
 }
-#obs p{
+
+#obs p {
     font-size: 13px;
-    color:black;
+    color: black;
     font-weight: bold;
     font-style: italic;
     text-align: center;
-    text-indent: none;
 }
-
 
 /* ==============================
    NAVEGAÇÃO
@@ -124,26 +124,18 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-
     margin: 10px 0;
-
     list-style: none;
 }
 
 .nav-main ul li a {
     display: block;
-
     padding: 8px 12px;
-
     color: var(--marrom-profundo);
-
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
-
     text-decoration: none;
-
     border-radius: 8px;
-
     transition: all 0.3s ease;
 }
 
@@ -158,20 +150,16 @@ header {
 
 .container h1 {
     padding: 15px 0 25px;
-
     color: var(--marrom-profundo);
-
     text-align: center;
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2rem;
 }
 
 /* ==============================
-   GRID PRINCIPAL (MOBILE-FIRST)
+   GRID PRINCIPAL
 ================================= */
 
-/* Padrão para Telas Menores / Mobile: 1 Box centralizado */
 .grid-main {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -181,127 +169,18 @@ header {
 }
 
 /* ==============================
-   TEXTOS
+   TEXTOS & FALA
 ================================= */
 
 .text p {
     margin: 15px 0;
-
     color: var(--texto);
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.05rem;
-
     line-height: 1.6;
-
     text-align: justify;
     text-indent: 30px;
 }
-
-/* ==============================
-   IMAGENS
-================================= */
-
-section figure {
-    width: 100%;
-    max-width: 700px;
-
-    margin: 20px auto;
-}
-
-section figure img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    border-radius: 5px;
-}
-
-section > figure > figcaption {
-    margin-top: 5px;
-
-    color: var(--dourado);
-
-    font-style: italic;
-    text-align: center;
-}
-
-/* ==============================
-   ARTIGOS
-================================= */
-
-section article {
-    padding: 10px;
-
-    background-color: var(--creme);
-
-    border: 1px solid var(--creme-rose);
-    border-radius: 5px;
-
-    box-shadow: 0 0 4px var(--dourado);
-
-    color: var(--marrom-profundo);
-
-    font-size: 14px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-section article p a {
-    color: #3E281C;
-    text-decoration: none;
-}
-
-section article p a:hover {
-    text-decoration: underline;
-}
-
-/* ==============================
-   HISTÓRIAS
-================================= */
-
-.historias {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-
-    border: 1px solid var(--dourado-claro);
-    border-radius: 5px;
-
-    box-shadow: 0 0 4px var(--dourado);
-
-    transition: all 0.3s ease;
-}
-
-.historias:hover {
-    transform: translateY(-6px);
-
-    border: 2px solid var(--dourado-claro);
-
-    box-shadow: 0 0 7px var(--dourado);
-}
-
-.historias a {
-    display: block;
-
-    padding: 5px;
-
-    color: var(--dourado-claro);
-
-    font-weight: bold;
-    text-align: center;
-
-    text-decoration: none;
-}
-
-.historias a figure figcaption {
-    margin-top: 20px;
-}
-
-/* ============================
-   FALA
-=============================== */
 
 span.fala {
     display: block;
@@ -309,10 +188,60 @@ span.fala {
     font-size: 1.05rem;
     font-style: italic;
     color: var(--marrom-medio);
-
     padding-left: 1rem;
     margin: 0.8rem 0;
     line-height: 1.6;
+}
+
+/* ==============================
+   HISTÓRIAS (CARDS)
+================================= */
+
+.historias {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid var(--dourado-claro);
+    border-radius: 5px;
+    box-shadow: 0 0 4px var(--dourado);
+    background-color: var(--creme);
+    
+    /* Estado inicial para animação do Scroll */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.historias.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.historias:hover {
+    border: 2px solid var(--dourado-claro);
+    box-shadow: 0 0 12px var(--dourado);
+}
+
+.historias a {
+    display: block;
+    padding: 10px;
+    color: var(--marrom-profundo);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.historias figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.historias a figure figcaption {
+    margin-top: 15px;
+    color: var(--marrom-profundo);
+    font-size: 0.95rem;
 }
 
 /* ==============================
@@ -321,15 +250,10 @@ span.fala {
 
 footer {
     padding: 15px;
-
     background-color: var(--creme-rose);
-
     border-top: 1px solid var(--borda);
-
     box-shadow: 0 0 4px var(--dourado);
-
     color: var(--marrom-profundo);
-
     text-align: center;
 }
 
@@ -344,24 +268,65 @@ footer > figure > img {
 }
 
 /* ==============================
-   BREAKPOINTS RESPONSIVOS (GRID)
+   EFEITOS E PARTICULAS (JS)
 ================================= */
 
-/* 1. Tablets (ex: 600px em diante): 2 Boxes */
+.particula-magica {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: desvanecer 1s forwards;
+    z-index: 9999;
+}
+
+@keyframes desvanecer {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0) translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
+
+.estrela-fundo {
+    position: fixed;
+    background-color: var(--dourado-claro);
+    border-radius: 50%;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    animation: piscarEstrela 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes piscarEstrela {
+    from {
+        opacity: 0.15;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 0.85;
+        transform: scale(1.3);
+    }
+}
+
+/* ==============================
+   BREAKPOINTS RESPONSIVOS
+================================= */
+
 @media screen and (min-width: 600px) {
     .grid-main {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* 2. Desktop (ex: 900px em diante): 3 Boxes */
 @media screen and (min-width: 900px) {
     .grid-main {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* 3. Telas Grandes (ex: 1200px em diante): 4 Boxes */
 @media screen and (min-width: 1200px) {
     .grid-main {
         grid-template-columns: repeat(4, 1fr);
