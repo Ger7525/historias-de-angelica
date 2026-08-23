@@ -89,8 +89,8 @@ header {
 ================================= */
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
 
@@ -242,6 +242,11 @@ span.fala {
     margin-top: 15px;
     color: var(--marrom-profundo);
     font-size: 0.95rem;
+}
+.historia{
+    height:auto;
+    width: 100%;
+    margin: 20px 0;
 }
 
 /* ==============================
