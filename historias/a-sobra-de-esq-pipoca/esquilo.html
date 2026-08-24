@@ -143,7 +143,93 @@
                 <img src="../../imagens/logo-rigth.png" alt="">
                 <figcaption>&copy Todos os direitos resevados a <strong>Ângelica Isadora</strong>..</figcaption>
             </figure>
-          </footer>         
+          </footer> 
+          
+           <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Criar e atualizar a Barra de Progresso de Leitura
+    const progressBar = document.createElement("div");
+    progressBar.id = "progresso-leitura";
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--dourado), var(--rose));
+        z-index: 10000;
+        transition: width 0.1s ease-out;
+        box-shadow: 0 0 8px var(--dourado-claro);
+    `;
+    document.body.appendChild(progressBar);
+
+    window.addEventListener("scroll", () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight > 0) {
+            const progress = (window.scrollY / totalHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+    });
+
+    // 2. Animação de entrada para os capítulos (#obs e .capitulo)
+    const elementosParaAnimar = document.querySelectorAll(".capitulo, #obs, .creditos");
+    
+    elementosParaAnimar.forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elementosParaAnimar.forEach(el => observer.observe(el));
+
+    // 3. Botão Estrela para Voltar ao Topo
+    const btnTopo = document.createElement("button");
+    btnTopo.innerHTML = "★ Topo";
+    btnTopo.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: var(--marrom-profundo);
+        color: var(--dourado-claro);
+        border: 1px solid var(--dourado);
+        border-radius: 20px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    `;
+    document.body.appendChild(btnTopo);
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            btnTopo.style.opacity = "1";
+            btnTopo.style.visibility = "visible";
+        } else {
+            btnTopo.style.opacity = "0";
+            btnTopo.style.visibility = "hidden";
+        }
+    });
+
+    btnTopo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+    </script>
                              
                     
 </body>
