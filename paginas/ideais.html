@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="../estilos/style.css">
+                    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+                    <title>Históas da Angelica | Ideais</title>
+</head>
+<body>
+       <header>
+        <div class="header">
+            <img src="../imagens/logo-header.png" alt="Logo do site">
+        </div>      
+    </header>
+
+    <main class="container">
+        <nav class="nav-main">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>  
+        </nav>
+        <main>
+               <section class="text">
+                    <h1>Bem-vindo ao Seu Próximo Capítulo 🚀</h1>
+                    <p>Sabe aquela sensação de abrir um livro ou uma história e esquecer completamente da hora? De se perder em um universo onde você pode ser quem quiser, explorar novos mundos e viver aventuras épicas sem nem sair da cama?</p>
+
+                    <p>Este site nasceu de uma história real. Ele foi criado por um pai (prazer, Germano!) inspirando-se em sua filha, a Angélica. A ideia sempre foi simples: transformar a hora de dormir no melhor momento do dia. Aquele instante em que o celular fica de lado, as luzes baixam e a imaginação assume o controle.</p>
+
+                    <p>Por que ler antes de dormir?</p>
+                    <p>Desconectar do mundo: Depois de um dia cheio de escola, tarefas e telas, ler é o scroll perfeito para a sua mente relaxar.</p>
+
+                    <p>Viajar sem limite de bagagem: Cada história é um portal para lugares incomuns, mistérios envolventes e personagens que parecem seus melhores amigos.</p>
+
+                    <p>Criar suas próprias respostas: Aqui não tem gabarito. As histórias acendem ideias, provocam perguntas e mostram que crescer é uma aventura e tanto.</p>
+
+                    <p>A transição da infância para a adolescência é cheia de descobertas, e os livros são os melhores companheiros nessa jornada. Não importa se você lê um capítulo por noite ou devora dez de uma vez só — o importante é encontrar a história certa para você.</p>
+
+                    <p>Puxe a coberta, escolha sua primeira leitura e boa viagem. 📖✨</p>
+
+
+               </section>     
+        </main> 
+        <footer>
+        <figure>
+            <img src="../imagens/logo-rigth.png" alt="Logo de direitos autorais">
+            <figcaption>&copy; Todos os direitos reservados a <strong>Angélica Isadora</strong>.</figcaption>
+        </figure>
+    </footer> 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Animação de Scroll (Revelação gradual das histórias)
+    const cards = document.querySelectorAll(".historias");
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("visivel");
+                }, index * 120);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // 2. Poeira mágica no cursor do mouse usando a paleta do site
+    const coresMagicas = ["#C9953D", "#E1B968", "#D98978", "#EBA99D", "#FFF9F3"];
+
+    document.addEventListener("mousemove", (e) => {
+        if (Math.random() > 0.35) return;
+
+        const particula = document.createElement("div");
+        particula.classList.add("particula-magica");
+
+        const tamanho = Math.random() * 6 + 3;
+        particula.style.width = `${tamanho}px`;
+        particula.style.height = `${tamanho}px`;
+
+        particula.style.left = `${e.clientX}px`;
+        particula.style.top = `${e.clientY}px`;
+
+        const corSorteada = coresMagicas[Math.floor(Math.random() * coresMagicas.length)];
+        particula.style.backgroundColor = corSorteada;
+        particula.style.boxShadow = `0 0 8px ${corSorteada}`;
+
+        const tx = (Math.random() - 0.5) * 40;
+        const ty = (Math.random() - 0.5) * 40;
+        particula.style.setProperty("--tx", `${tx}px`);
+        particula.style.setProperty("--ty", `${ty}px`);
+
+        document.body.appendChild(particula);
+
+        setTimeout(() => {
+            particula.remove();
+        }, 1000);
+    });
+
+    // 3. Estrelas de fundo dinâmicas piscando suavemente
+    const quantidadeEstrelas = 25;
+    for (let i = 0; i < quantidadeEstrelas; i++) {
+        const estrela = document.createElement("div");
+        estrela.classList.add("estrela-fundo");
+        
+        const tamanho = Math.random() * 3 + 2;
+        estrela.style.width = `${tamanho}px`;
+        estrela.style.height = `${tamanho}px`;
+        estrela.style.left = `${Math.random() * 100}vw`;
+        estrela.style.top = `${Math.random() * 100}vh`;
+        estrela.style.animationDelay = `${Math.random() * 3}s`;
+
+        document.body.appendChild(estrela);
+    }
+
+    // 4. Efeito 3D Tilt suave nos cards ao passar o mouse
+    cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            card.style.transform = `perspective(800px) rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+        });
+    });
+});
+</script>     
+
+
+                    
+</body>
+</html>

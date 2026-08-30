@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="../estilos/style.css">
+                    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+                    <title>Históas da Angelica | Contatos</title>
+                    <style>
+                     .contato{padding: 10px;}
+                     .contato  li{margin: 10px;color: #5A3218;} 
+                     .contato li a{text-decoration: none;color:#5A3218;} 
+                     .contato li a:hover{text-decoration: underline;}           
+                    </style>
+</head>
+<body>
+       <header>
+        <div class="header">
+            <img src="../imagens/logo-header.png" alt="Logo do site">
+        </div>      
+    </header>
+
+    <main class="container">
+        <nav class="nav-main">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="ideais.html">Ideais</a></li>
+            </ul>  
+        </nav>
+        <main>
+               <section class="text">
+                    <h1>Fale Conosco</h1>
+                    <p>Tem alguma dúvida, quer deixar uma sugestão de história ou apenas compartilhar como tem sido sua experiência de leitura por aqui? Esse espaço foi feito para construirmos pontes e trocarmos ideias.</p>
+
+                    <p>Seja você um jovem leitor, um pai, uma mãe ou um educador, será um prazer imenso conversar com você!</p>
+
+                    <h2>Entre em Contato:</h2>
+
+                    <ul class="contato">
+                     <li>📧 E-mail: <a href="mailto:gerartsia@gmail.com" target="_blank">gerartsia@gmail.com</a></li>
+                     <li>💬 WhatsApp: <a href="https://wa.me/81991510858" target="_blank">(81) 99151-8058</a></li>
+                     <li>📸 Instagram:<a href="https://www.instagram.com/gerartsia/" target="_blank"> @gerartsia</a></li>
+                     <li> 💻 GitHub: <a href="https://github.com/Ger7525" target="_blank">github.com/Ger7525</a></li>
+                                                                                                </ul>
+                    
+
+                    <p>Mandou mensagem? Prometo responder assim que possível. Boa leitura e até breve!</p>
+
+                    <p>Quer ajuda para criar a estrutura das categorias de histórias do site ou prefere começar a escrever a primeira história para a Angélica e os leitores?</p>
+
+
+               </section>     
+        </main> 
+        <footer>
+        <figure>
+            <img src="../imagens/logo-rigth.png" alt="Logo de direitos autorais">
+            <figcaption>&copy; Todos os direitos reservados a <strong>Angélica Isadora</strong>.</figcaption>
+        </figure>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Animação de Scroll (Revelação gradual das histórias)
+    const cards = document.querySelectorAll(".historias");
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("visivel");
+                }, index * 120);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // 2. Poeira mágica no cursor do mouse usando a paleta do site
+    const coresMagicas = ["#C9953D", "#E1B968", "#D98978", "#EBA99D", "#FFF9F3"];
+
+    document.addEventListener("mousemove", (e) => {
+        if (Math.random() > 0.35) return;
+
+        const particula = document.createElement("div");
+        particula.classList.add("particula-magica");
+
+        const tamanho = Math.random() * 6 + 3;
+        particula.style.width = `${tamanho}px`;
+        particula.style.height = `${tamanho}px`;
+
+        particula.style.left = `${e.clientX}px`;
+        particula.style.top = `${e.clientY}px`;
+
+        const corSorteada = coresMagicas[Math.floor(Math.random() * coresMagicas.length)];
+        particula.style.backgroundColor = corSorteada;
+        particula.style.boxShadow = `0 0 8px ${corSorteada}`;
+
+        const tx = (Math.random() - 0.5) * 40;
+        const ty = (Math.random() - 0.5) * 40;
+        particula.style.setProperty("--tx", `${tx}px`);
+        particula.style.setProperty("--ty", `${ty}px`);
+
+        document.body.appendChild(particula);
+
+        setTimeout(() => {
+            particula.remove();
+        }, 1000);
+    });
+
+    // 3. Estrelas de fundo dinâmicas piscando suavemente
+    const quantidadeEstrelas = 25;
+    for (let i = 0; i < quantidadeEstrelas; i++) {
+        const estrela = document.createElement("div");
+        estrela.classList.add("estrela-fundo");
+        
+        const tamanho = Math.random() * 3 + 2;
+        estrela.style.width = `${tamanho}px`;
+        estrela.style.height = `${tamanho}px`;
+        estrela.style.left = `${Math.random() * 100}vw`;
+        estrela.style.top = `${Math.random() * 100}vh`;
+        estrela.style.animationDelay = `${Math.random() * 3}s`;
+
+        document.body.appendChild(estrela);
+    }
+
+    // 4. Efeito 3D Tilt suave nos cards ao passar o mouse
+    cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            card.style.transform = `perspective(800px) rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+        });
+    });
+});
+</script>      
+
+
+                    
+</body>
+</html>

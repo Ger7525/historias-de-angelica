@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="../estilos/style.css">
+                    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+                    <title>Históas da Angelica | Quem Somos</title>
+</head>
+<body>
+       <header>
+        <div class="header">
+            <img src="../imagens/logo-header.png" alt="Logo do site">
+        </div>      
+    </header>
+
+    <main class="container">
+        <nav class="nav-main">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="ideais.html">Ideais</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>  
+        </nav>
+        <main>
+               <section class="text">
+                    <h1>A Origem do Projeto</h1>
+                    <p>Tudo começou com um pai querendo se aproximar de sua filha contando histórias, mesmo sem estar perto.</p>
+
+                    <p>Quando a distância tentou criar silêncio, a escrita virou ponte. Eu, Germano Santos, precisei encontrar uma forma de estar presente no momento mais calmo do dia da minha filha, a Angélica. A solução foi usar as palavras para cruzar os quilômetros: cada história enviada antes de ela dormir era o meu abraço de boa noite, a minha forma de dizer "estou aqui".</p>
+
+                    <p>O que começou como um gesto de carinho de pai para filha acabou revelando um propósito ainda maior. Vi o poder que as palavras têm de acalmar a mente, despertar a imaginação e inspirar quem está crescendo.</p>
+
+                    <p>Foi assim que este site nasceu. Ele foi feito para jovens que estão nessa fase de descobertas — transicionando da infância para a adolescência. Aqui, a leitura deixa de ser uma obrigação da escola e vira um momento de pausa, reflexão e refúgio antes de fechar os olhos.</p>
+
+                    <p>Seja bem-vindo a este espaço. Puxe a coberta, escolha sua história e boa leitura.</p>
+
+               </section>     
+        </main> 
+        <footer>
+        <figure>
+            <img src="../imagens/logo-rigth.png" alt="Logo de direitos autorais">
+            <figcaption>&copy; Todos os direitos reservados a <strong>Angélica Isadora</strong>.</figcaption>
+        </figure>
+    </footer> 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Animação de Scroll (Revelação gradual das histórias)
+    const cards = document.querySelectorAll(".historias");
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("visivel");
+                }, index * 120);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // 2. Poeira mágica no cursor do mouse usando a paleta do site
+    const coresMagicas = ["#C9953D", "#E1B968", "#D98978", "#EBA99D", "#FFF9F3"];
+
+    document.addEventListener("mousemove", (e) => {
+        if (Math.random() > 0.35) return;
+
+        const particula = document.createElement("div");
+        particula.classList.add("particula-magica");
+
+        const tamanho = Math.random() * 6 + 3;
+        particula.style.width = `${tamanho}px`;
+        particula.style.height = `${tamanho}px`;
+
+        particula.style.left = `${e.clientX}px`;
+        particula.style.top = `${e.clientY}px`;
+
+        const corSorteada = coresMagicas[Math.floor(Math.random() * coresMagicas.length)];
+        particula.style.backgroundColor = corSorteada;
+        particula.style.boxShadow = `0 0 8px ${corSorteada}`;
+
+        const tx = (Math.random() - 0.5) * 40;
+        const ty = (Math.random() - 0.5) * 40;
+        particula.style.setProperty("--tx", `${tx}px`);
+        particula.style.setProperty("--ty", `${ty}px`);
+
+        document.body.appendChild(particula);
+
+        setTimeout(() => {
+            particula.remove();
+        }, 1000);
+    });
+
+    // 3. Estrelas de fundo dinâmicas piscando suavemente
+    const quantidadeEstrelas = 25;
+    for (let i = 0; i < quantidadeEstrelas; i++) {
+        const estrela = document.createElement("div");
+        estrela.classList.add("estrela-fundo");
+        
+        const tamanho = Math.random() * 3 + 2;
+        estrela.style.width = `${tamanho}px`;
+        estrela.style.height = `${tamanho}px`;
+        estrela.style.left = `${Math.random() * 100}vw`;
+        estrela.style.top = `${Math.random() * 100}vh`;
+        estrela.style.animationDelay = `${Math.random() * 3}s`;
+
+        document.body.appendChild(estrela);
+    }
+
+    // 4. Efeito 3D Tilt suave nos cards ao passar o mouse
+    cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            card.style.transform = `perspective(800px) rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+        });
+    });
+});
+</script>     
+
+
+                    
+</body>
+</html>
