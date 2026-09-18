@@ -50,7 +50,7 @@ header {
     width: 100%;
     min-height: 120px;
     background-color: var(--creme-rose);
-
+    border-bottom: 1px solid var(--borda);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,8 +89,8 @@ header {
 ================================= */
 
 .container {
-    width: 95%;
-    max-width: 900px;
+    width: 92%;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
 
@@ -162,13 +162,10 @@ header {
 
 .grid-main {
     display: grid;
-    grid-template: repeat(100px, 1fr) / repeat(1, 1fr);
-    gap: 30px;
-    place-items:normal center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
     justify-content: center;
-    place-content: auto center;
-    
-   
+    align-items: stretch;
 }
 
 /* ==============================
@@ -197,19 +194,22 @@ span.fala {
 }
 
 /* ==============================
-   HISTÓRIAS (CARDS)
+   HISTÓRIAS (CARDS & FIGURES)
 ================================= */
 
 .historias {
     width: 100%;
-    max-width: 300px;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
     border: 1px solid var(--dourado-claro);
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 4px var(--dourado);
     background-color: var(--creme);
     
-    /* Estado inicial para animação do Scroll */
+    /* Animação de Scroll */
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -226,43 +226,78 @@ span.fala {
 }
 
 .historias a {
-    display: block;
-    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--marrom-profundo);
     font-weight: bold;
     text-align: center;
     text-decoration: none;
 }
 
-.historias figure img {
-    display: block;
+/* Figure com Flexbox vertical para garantir o figcaption abaixo da imagem */
+.historias figure,
+figure {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-.img-sub{
+    margin: 0;
     display: flex;
-    flex-flow:row nowrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-content: center;
-    margin: 20px 10px;
-}
-.img-sub img{
-    width: 300px;
+    justify-content: center;
 }
 
-.historias a figure figcaption {
-    margin-top: 15px;
-    color: var(--marrom-profundo);
-    font-size: 0.95rem;
+.historias figure img {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 3 / 4; 
+    object-fit: cover;
+    border-radius: 5px;
 }
-.historia{
-    height:auto;
+
+/* Estilização do FIGCAPTION abaixo da imagem */
+figcaption,
+.historias figure figcaption {
+    width: 100%;
+    margin-top: 10px;
+    color: var(--marrom-profundo);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.img-sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin: 20px 0;
 }
-.li-creditos{
+
+.img-sub img {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.historias a p {
+    margin-top: 15px;
+    color: var(--marrom-profundo);
+    font-size: 0.95rem;
+    font-weight: bolder;
+}
+
+.historia {
+    height: auto;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.li-creditos {
     margin: 20px;
 }
 
@@ -281,6 +316,9 @@ footer {
 
 footer > figure {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer > figure > img {
@@ -290,7 +328,7 @@ footer > figure > img {
 }
 
 /* ==============================
-   EFEITOS E PARTICULAS (JS)
+   EFEITOS E PARTICULAS
 ================================= */
 
 .particula-magica {
@@ -337,29 +375,23 @@ footer > figure > img {
    BREAKPOINTS RESPONSIVOS
 ================================= */
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 360px) {
     .grid-main {
-        grid-template: 300px 300px / auto auto;
-        
+        grid-template-columns: 1fr;
     }
     .container {
-         width: 80%;
-         
-    }     
+        padding: 10px;
+    }
 }
 
-@media screen and (min-width: 900px) {
-    .grid-main {
-        grid-template: auto auto auto / auto auto auto;
+@media screen and (min-width: 768px) {
+    .container {
+        width: 85%;
     }
-   
 }
 
 @media screen and (min-width: 1200px) {
-    .grid-main {
-        grid-template: auto auto auto auto/auto auto auto auto;
+    .container {
+        width: 80%;
     }
-     .container {
-         width: 60%;
-    }     
 }
