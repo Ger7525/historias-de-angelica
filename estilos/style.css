@@ -240,6 +240,17 @@ span.fala {
     height: auto;
     border-radius: 5px;
 }
+.img-sub{
+    display: flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 20px 10px;
+}
+.img-sub img{
+    width: 300px;
+}
 
 .historias a figure figcaption {
     margin-top: 15px;
@@ -250,6 +261,9 @@ span.fala {
     height:auto;
     width: 100%;
     margin: 20px 0;
+}
+.li-creditos{
+    margin: 20px;
 }
 
 /* ==============================
