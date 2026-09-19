@@ -285,6 +285,34 @@ figcaption,
     object-fit: cover;
     border-radius: 5px;
 }
+/* ==============================
+   AJUSTE DA CLASSE CAP-IMG (MOLDURA & IMAGENS)
+================================= */
+
+.cap-img {
+    width: 100%;
+    max-width: 900px; /* Limita a largura para uma leitura confortável */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Moldura estilizada combinando com a paleta do site */
+    padding: 12px;
+    background-color: var(--creme-rose);
+    border: 2px solid var(--dourado);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(90, 50, 24, 0.25);
+    
+    margin: 25px auto;
+}
+
+.cap-img img {
+    width: 100%;
+    max-height: 80vh; /* Limita a altura máxima na tela sem distorcer */
+    object-fit: contain; /* Mantém a proporção exata da imagem sem desfocar */
+    border-radius: 4px;
+    display: block;
+}
 
 .historias a p {
     margin-top: 15px;
